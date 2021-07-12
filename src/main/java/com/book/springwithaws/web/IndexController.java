@@ -22,22 +22,16 @@ import java.util.Optional;
 public class IndexController {
 
     private final PostsRepository postsRepository;
+    private final PostsService postsService;
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model)
-    {
-        List<Posts> postsList = postsRepository.findAllDesc();
-        model.addAttribute("posts",postsList);
-
-        //SessionUser에 저장한 로그인 정보
+    public String index(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
-
-        if(user!=null)
-        {
-             model.addAttribute("userName",user.getName());
+        if (user != null) {
+            model.addAttribute("MyUser", user.getName());
         }
-
         return "index";
     }
 

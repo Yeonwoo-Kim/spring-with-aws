@@ -3,8 +3,10 @@ package com.book.springwithaws.config.auth.dto;
 import com.book.springwithaws.domain.user.User;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
 
     private String name;
     private String email;
