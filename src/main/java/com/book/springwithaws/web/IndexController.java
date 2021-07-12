@@ -1,5 +1,6 @@
 package com.book.springwithaws.web;
 
+import com.book.springwithaws.config.auth.dto.SessionUser;
 import com.book.springwithaws.domain.posts.Posts;
 import com.book.springwithaws.domain.posts.PostsRepository;
 import com.book.springwithaws.service.posts.PostsResponseDto;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,12 +22,22 @@ import java.util.Optional;
 public class IndexController {
 
     private final PostsRepository postsRepository;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model)
     {
         List<Posts> postsList = postsRepository.findAllDesc();
         model.addAttribute("posts",postsList);
+
+        //SessionUser에 저장한 로그인 정보
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if(user!=null)
+        {
+             model.addAttribute("userName",user.getName());
+        }
+
         return "index";
     }
 
