@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.book.springwithaws.web.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-12T04:42:18" hostname="DESKTOP-RLR50TB" time="0.007">
+<testsuite name="com.book.springwithaws.web.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-13T02:01:49" hostname="DESKTOP-RLR50TB" time="0.008">
   <properties/>
-  <testcase name="test" classname="com.book.springwithaws.web.dto.HelloResponseDtoTest" time="0.007"/>
+  <testcase name="test" classname="com.book.springwithaws.web.dto.HelloResponseDtoTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
